@@ -8,7 +8,7 @@ const Home = lazy(() => import('pages/Home'));
 const Movies = lazy(() => import('pages/Movies'));
 const MovieDetails = lazy(() => import('pages/MovieDetails/MovieDetails'));
 const Cast = lazy(() => import('components/Cast/Cast'));
-const Reviews = lazy(() => import('components/Reviews'));
+const Reviews = lazy(() => import('components/Reviews/Reviews'));
 
 const ErrorBoundary = () => {
   return <h3>Wystąpił błąd podczas ładowania komponentu.</h3>;

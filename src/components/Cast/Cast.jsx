@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCast } from 'API/Api';
 
-import s from './Cast.module.css';
+import s from './cast.module.css';
 
 const Cast = () => {
   const [movieCast, setMovieCast] = useState(null);
