@@ -1,5 +1,8 @@
 .wrapper {
     padding: 15px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 20px;
   }
   
   .item {
