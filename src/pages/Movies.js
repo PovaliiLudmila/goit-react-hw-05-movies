@@ -4,7 +4,7 @@ import { useSearchParams, NavLink, useLocation } from 'react-router-dom';
 import { Notify } from 'notiflix';
 Notify.init({ showOnlyTheLastOne: true, clickToClose: true });
 
-const Movies = ({ isLoading }) => {
+const Movies = () => {
   const [movies, setSearchedMovie] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
@@ -23,34 +23,23 @@ const Movies = ({ isLoading }) => {
       setSearchedMovie([]);
     }
   }
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   const form = e.target;
-  //   const newQuery = form.elements.query.value;
-  //   setSearchParams(newQuery !== '' ? { query: newQuery } : {});
-  //   form.reset();
-  // };
-
-  // useEffect(() => {
-  //   if (!query) return;
-  //   getQuery(query).then(setSearchedMovie);
-  // }, [query]);
+  
   useEffect(() => {
     async function getData() {
       try {
         if (!query) return;
+        
         getQuery(query).then(setSearchedMovie);
-        isLoading(true);
-        // const getQuery = await api.searchMovies(query);
         setSearchedMovie(getQuery.data.results);
 
         if (getQuery.data.results.length === 0) Notify.failure('Sorry, this movie not found');
       } finally {
-        isLoading(false);
+  
+      
       }
     }
     getData();
-  }, [query, isLoading]);
+  }, [query]);
 
   return (
     <form onSubmit={handleSubmit}>
