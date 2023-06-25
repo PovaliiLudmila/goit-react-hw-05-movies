@@ -28,14 +28,12 @@ const Movies = () => {
     async function getData() {
       try {
         if (!query) return;
-        
         getQuery(query).then(setSearchedMovie);
-        setSearchedMovie(getQuery.data.results);
-
+        
         if (getQuery.data.results.length === 0) Notify.failure('Sorry, this movie not found');
       } finally {
   
-      
+      setSearchedMovie(getQuery.data.results);
       }
     }
     getData();
